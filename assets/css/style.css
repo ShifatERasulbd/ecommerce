@@ -446,13 +446,26 @@ header {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
+  transform: translateY(0);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
   border-top: 3px solid var(--primary-color);
   pointer-events: none;
 }
-.has-mega-menu:hover .mega-menu {
+
+/* Create invisible bridge between menu and mega menu to prevent closing */
+.mega-menu::before {
+  content: '';
+  position: absolute;
+  top: -70px;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: transparent;
+}
+
+.has-mega-menu:hover .mega-menu,
+.mega-menu:hover {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
