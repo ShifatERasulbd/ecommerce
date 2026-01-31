@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkout | LuxeStore</title>
+  <meta name="description" content="Secure checkout for LuxeStore. Enter shipping details and choose your payment method." />
+  <meta name="keywords" content="checkout, ecommerce, payment, shipping" />
+  <meta name="author" content="LuxeStore" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Checkout | LuxeStore" />
+  <meta property="og:description" content="Secure checkout for LuxeStore. Enter shipping details and choose your payment method." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="LuxeStore Home">Luxe<span>Store</span>.</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="checkout.html" aria-current="page">Checkout</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-icons">
+        <button class="cart-btn" aria-label="View Cart" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" aria-label="Cart items">2</span>
+        </button>
+
+        <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="mainContent" class="container checkout-page" role="main">
+
+    <!-- Progress -->
+    <nav class="checkout-progress" aria-label="Checkout steps">
+      <div class="step completed">
+        <div class="step-circle" aria-hidden="true">1</div>
+        <div class="step-title">Cart</div>
+        <div class="step-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="step completed">
+        <div class="step-circle" aria-hidden="true">2</div>
+        <div class="step-title">Details</div>
+        <div class="step-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="step">
+        <div class="step-circle" aria-hidden="true">3</div>
+        <div class="step-title">Shipping</div>
+        <div class="step-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="step">
+        <div class="step-circle" aria-hidden="true">4</div>
+        <div class="step-title">Payment</div>
+      </div>
+    </nav>
+
+    <div class="checkout-wrapper">
+
+      <!-- Left: Form -->
+      <section class="checkout-card content-col" aria-label="Customer & shipping form">
+        <h1 class="section-title">Customer &amp; Shipping</h1>
+
+        <form class="checkout-form" action="#" method="post">
+          <h2 class="subsection-title">Contact Details</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name</label>
+              <input id="firstName" name="firstName" type="text" required placeholder="John" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input id="lastName" name="lastName" type="text" required placeholder="Doe" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input id="email" name="email" type="email" required placeholder="john.doe@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="text" inputmode="tel" placeholder="+880 1XXXXXXXXX" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="country">Country</label>
+            <select id="country" name="country">
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+              <option>Australia</option>
+              <option>France</option>
+              <option>Bangladesh</option>
+            </select>
+          </div>
+
+          <div class="form-row form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="address">Address</label>
+              <input id="address" name="address" type="text" required placeholder="123 Main St" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="city">City</label>
+              <input id="city" name="city" type="text" required placeholder="Dhaka" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="zip">Zip Code</label>
+              <input id="zip" name="zip" type="text" required placeholder="1000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="notes">Delivery Instructions</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Please leave at gate if not home."></textarea>
+          </div>
+
+          <div class="checkout-cta">
+            <button class="btn-main" type="submit">Continue</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Right: Summary + Payment -->
+      <aside class="checkout-card summary-col" aria-label="Order summary and payment">
+
+        <h2 class="section-title">Order Summary</h2>
+
+        <div class="order-list">
+          <div class="order-item">
+            <div class="item-details">
+              <img class="item-thumb" src="https://picsum.photos/seed/watch2/100/100" alt="Obsidian Chronograph watch" loading="lazy" width="60" height="60" />
+              <div class="item-info">
+                <div class="item-title">Obsidian Chronograph</div>
+                <div class="item-meta">Black / Leather</div>
+                <button class="remove-link" type="button">Edit</button>
+              </div>
+            </div>
+            <div class="item-price">$1,200.00</div>
+          </div>
+
+          <div class="order-item">
+            <div class="item-details">
+              <img class="item-thumb" src="https://picsum.photos/seed/bag2/100/100" alt="Canvas Tote bag" loading="lazy" width="60" height="60" />
+              <div class="item-info">
+                <div class="item-title">Canvas Tote</div>
+                <div class="item-meta">Natural Tan</div>
+                <button class="remove-link" type="button">Edit</button>
+              </div>
+            </div>
+            <div class="item-price">$89.50</div>
+          </div>
+
+          <div class="order-item">
+            <div class="item-details">
+              <img class="item-thumb" src="https://picsum.photos/seed/shirt1/100/100" alt="Cotton Crew Neck shirt" loading="lazy" width="60" height="60" />
+              <div class="item-info">
+                <div class="item-title">Cotton Crew Neck</div>
+                <div class="item-meta">White / M</div>
+                <button class="remove-link" type="button">Edit</button>
+              </div>
+            </div>
+            <div class="item-price">$45.00</div>
+          </div>
+        </div>
+
+        <div class="order-totals">
+          <div class="total-row">
+            <span class="total-label">Subtotal (3 items)</span>
+            <span class="total-value">$1,334.50</span>
+          </div>
+          <div class="total-row">
+            <span class="total-label">Shipping</span>
+            <span class="total-value">Free</span>
+          </div>
+          <div class="total-row total-row-strong">
+            <span class="total-label">Total</span>
+            <span class="total-price">$1,334.50</span>
+          </div>
+        </div>
+
+        <form class="coupon-area" action="#" method="post">
+          <label class="sr-only" for="coupon">Discount Code</label>
+          <input id="coupon" type="text" class="coupon-input" placeholder="Discount Code" />
+          <button class="apply-btn" type="submit">Apply</button>
+        </form>
+
+        <h3 class="payment-title">Payment Method</h3>
+
+        <fieldset class="payment-methods" aria-label="Payment methods">
+          <legend class="sr-only">Choose a payment method</legend>
+
+          <label class="pay-btn active">
+            <input class="pay-radio" type="radio" name="payment" value="visa" checked />
+            <span class="pay-dot" aria-hidden="true"></span>
+            <span class="pay-text">
+              <span class="pay-name">Visa Credit</span>
+              <span class="pay-desc">Pay 1% cashback</span>
+            </span>
+          </label>
+
+          <label class="pay-btn">
+            <input class="pay-radio" type="radio" name="payment" value="paypal" />
+            <span class="pay-dot" aria-hidden="true"></span>
+            <span class="pay-text">
+              <span class="pay-name">PayPal</span>
+              <span class="pay-desc">Pay using PayPal</span>
+            </span>
+          </label>
+
+          <label class="pay-btn">
+            <input class="pay-radio" type="radio" name="payment" value="applepay" />
+            <span class="pay-apple" aria-hidden="true"></span>
+            <span class="pay-text">
+              <span class="pay-name">Apple Pay</span>
+              <span class="pay-desc">Fast checkout</span>
+            </span>
+          </label>
+
+          <label class="pay-btn">
+            <input class="pay-radio" type="radio" name="payment" value="card" />
+            <span class="pay-dot" aria-hidden="true"></span>
+            <span class="pay-text">
+              <span class="pay-name">Credit Card</span>
+              <span class="pay-desc">Pay with card</span>
+            </span>
+          </label>
+        </fieldset>
+
+        <div class="checkout-cta">
+          <button class="btn-main" type="button">Place Order</button>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo">Luxe<span>Store</span>.</a>
+          <p class="footer-text">Creating timeless elegance through modern simplicity.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#">All Products</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="footer-text">Subscribe to our newsletter for latest updates.</p>
+          <form class="newsletter-form">
+            <label class="sr-only" for="newsletterEmail">Email Address</label>
+            <input id="newsletterEmail" type="email" class="newsletter-input" placeholder="Email Address" required />
+            <button class="newsletter-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2023 LuxeStore. All rights reserved. Designed with HTML5 &amp; CSS3.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

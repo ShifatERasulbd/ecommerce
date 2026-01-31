@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shopping Cart | LuxeStore</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary:#4f46e5;
+      --primary-hover:#4338ca;
+      --secondary:#111827;
+
+      --bg:#f6f7fb;
+      --white:#fff;
+
+      --text:#374151;
+      --muted:#6b7280;
+      --muted2:#9ca3af;
+      --border:#e5e7eb;
+
+      --shadow:0 10px 35px rgba(17,24,39,.08);
+      --radius:12px;
+
+      --danger:#ef4444;
+      --accent:#f97316;
+      --transition:220ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{font-family:inherit}
+
+    .container{max-width:1200px;margin:0 auto;padding:22px 18px}
+
+    /* Layout like screenshot: left cart list + right summary */
+    .cart-layout{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap: 22px;
+      align-items:start;
+    }
+
+    /* LEFT PANEL */
+    .cart-panel{
+      background:transparent;
+    }
+
+    .cart-row{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow: 0 1px 0 rgba(17,24,39,.02);
+    }
+
+    /* Top row: Select all + Delete */
+    .cart-topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      background:#fbfbfc;
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .topbar-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .icon-btn{
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:10px;
+      transition:background var(--transition), color var(--transition);
+    }
+    .icon-btn:hover{background:#f3f4f6;color:var(--secondary)}
+    .icon-btn.danger:hover{background:rgba(239,68,68,.08);color:var(--danger)}
+
+    /* Seller header row */
+    .seller-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      border-bottom:1px solid var(--border);
+      background:#fff;
+    }
+    .seller-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .seller-name{
+      font-weight:700;
+      color:var(--secondary);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .seller-arrow{
+      color:var(--muted2);
+      font-weight:900;
+    }
+
+    /* Item row like screenshot */
+    .item-row{
+      display:grid;
+      grid-template-columns: 38px 90px 1fr 150px 130px;
+      gap:14px;
+      align-items:center;
+      padding:16px;
+      border-bottom:1px solid var(--border);
+      background:#fff;
+    }
+    .item-row:last-child{border-bottom:none}
+
+    .chk-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    input[type="checkbox"]{
+      width:16px;height:16px;
+      accent-color: var(--primary);
+      cursor:pointer;
+    }
+
+    .thumb{
+      width:90px;height:90px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      background:#f3f4f6;
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover}
+
+    .item-info{
+      min-width:0;
+    }
+    .item-title{
+      font-weight:700;
+      color:var(--secondary);
+      line-height:1.25;
+      margin-bottom:6px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      font-size:.75rem;
+      font-weight:800;
+      color:#fff;
+      background:#a855f7;
+      padding:3px 8px;
+      border-radius:8px;
+      line-height:1;
+    }
+    .item-meta{
+      font-size:.85rem;
+      color:var(--muted);
+    }
+
+    .price{
+      text-align:right;
+      white-space:nowrap;
+    }
+    .price-now{
+      font-weight:900;
+      color:var(--accent);
+      font-size:1.05rem;
+    }
+    .price-old{
+      display:block;
+      margin-top:4px;
+      color:var(--muted2);
+      text-decoration:line-through;
+      font-weight:700;
+      font-size:.9rem;
+    }
+
+    .qty{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:10px;
+    }
+    .qty-btn{
+      width:36px;height:36px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:10px;
+      font-size:1.2rem;
+      cursor:pointer;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .qty-btn:hover{background:#f3f4f6;border-color:#d1d5db}
+    .qty-val{
+      min-width:22px;
+      text-align:center;
+      font-weight:900;
+      color:var(--secondary);
+    }
+
+    .item-actions{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+    }
+    .mini-icon{
+      width:36px;height:36px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:10px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+    .mini-icon:hover{background:#f3f4f6;color:var(--secondary)}
+    .mini-icon.danger:hover{background:rgba(239,68,68,.08);color:var(--danger);border-color:rgba(239,68,68,.25)}
+
+    /* RIGHT SUMMARY */
+    .summary{
+      position:sticky;
+      top:18px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .summary h3{
+      font-size:1.05rem;
+      color:var(--secondary);
+      margin-bottom:14px;
+    }
+    .sum-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 0;
+      border-bottom:1px dashed #eef0f3;
+      font-size:.92rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .sum-row strong{
+      color:var(--secondary);
+      font-weight:900;
+    }
+    .sum-row:last-of-type{border-bottom:none}
+
+    .voucher{
+      margin:16px 0 10px;
+      display:flex;
+      gap:10px;
+    }
+    .voucher input{
+      flex:1;
+      height:42px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:0 12px;
+      outline:none;
+    }
+    .voucher input:focus{
+      border-color:rgba(79,70,229,.45);
+      box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+    }
+    .apply-btn{
+      height:42px;
+      padding:0 16px;
+      border:none;
+      border-radius:10px;
+      background:#0ea5e9;
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+      transition:filter var(--transition), transform var(--transition);
+    }
+    .apply-btn:hover{filter:brightness(1.02);transform:translateY(-1px)}
+
+    .total{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding-top:12px;
+      margin-top:8px;
+      border-top:1px solid var(--border);
+      font-weight:900;
+      color:var(--secondary);
+    }
+    .total strong{color:var(--accent);font-size:1.15rem}
+
+    .checkout{
+      margin-top:14px;
+      width:100%;
+      height:46px;
+      border:none;
+      border-radius:10px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:900;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:filter var(--transition), transform var(--transition);
+    }
+    .checkout:hover{filter:brightness(1.03);transform:translateY(-1px)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .cart-layout{grid-template-columns:1fr}
+      .summary{position:static}
+      .item-row{
+        grid-template-columns: 38px 90px 1fr;
+        grid-template-rows:auto auto;
+      }
+      .price{grid-column: 2 / -1; text-align:left}
+      .qty{grid-column: 2 / -1; justify-content:flex-start}
+      .item-actions{grid-column: 2 / -1; justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrapper" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+      <a href="index.html" class="logo" aria-label="LuxeStore Home" style="font-size:1.7rem;font-weight:700;letter-spacing:-1px;color:var(--secondary)">Luxe<span style="color:var(--primary)">Store</span>.</a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" style="display:flex;gap:2rem;list-style:none;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="cart.html" class="is-active">Cart</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons" style="display:flex;align-items:center;gap:1.5rem;">
+        <button class="cart-btn" type="button" aria-label="View Cart" style="background:none;border:none;position:relative;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-count" id="cartCount" style="position:absolute;top:-8px;right:-8px;background:var(--primary);color:#fff;font-size:0.7rem;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="cart-layout">
+
+      <!-- LEFT: Cart list -->
+      <section class="cart-panel">
+        <div class="cart-row">
+
+          <!-- Select all row (like screenshot) -->
+          <div class="cart-topbar">
+            <div class="topbar-left">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+                <input type="checkbox" id="selectAll" />
+                <span>SELECT ALL (<span id="selCount">1</span> ITEM(S))</span>
+              </label>
+            </div>
+
+            <div class="topbar-actions">
+              <button class="icon-btn danger" type="button" id="deleteSelectedBtn">
+                🗑️ <span>DELETE</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Seller row (like screenshot: Mega Bazar BD >) -->
+          <div class="seller-row">
+            <div class="seller-left">
+              <input type="checkbox" class="seller-check" />
+              <div class="seller-name">
+                <span>🏬</span>
+                <span>Mega Bazar BD</span>
+                <span class="seller-arrow">›</span>
+              </div>
+            </div>
+
+            <button class="icon-btn danger" type="button" id="deleteSellerBtn">🗑️ DELETE</button>
+          </div>
+
+          <!-- Item row -->
+          <div class="item-row cart-item" data-price="1149">
+            <div class="chk-wrap">
+              <input type="checkbox" class="item-check" checked />
+            </div>
+
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/cart-a/160/160" alt="Product" />
+            </div>
+
+            <div class="item-info">
+              <div class="item-title">
+                <span class="badge">2.2</span>
+                <span>Monocular Dual Focus Optics Zoom</span>
+              </div>
+              <div class="item-meta">No brand, Color Family: Black</div>
+              <div class="item-actions" style="margin-top:10px;">
+                <button class="mini-icon" type="button" title="Wishlist">♡</button>
+                <button class="mini-icon danger remove-btn" type="button" title="Remove">🗑️</button>
+              </div>
+            </div>
+
+            <div class="price">
+              <div class="price-now">৳ <span class="unit">1149</span></div>
+              <span class="price-old">৳ 2600</span>
+            </div>
+
+            <div class="qty">
+              <button class="qty-btn minus" type="button">−</button>
+              <span class="qty-val">1</span>
+              <button class="qty-btn plus" type="button">+</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT: Order summary -->
+      <aside class="summary">
+        <h3>Order Summary</h3>
+
+        <div class="sum-row">
+          <span>Subtotal (<span id="itemsText">0</span> items)</span>
+          <strong>৳ <span id="subtotal">0</span></strong>
+        </div>
+
+        <div class="sum-row">
+          <span>Shipping Fee</span>
+          <strong>৳ <span id="shipping">0</span></strong>
+        </div>
+
+        <div class="voucher">
+          <input type="text" id="voucher" placeholder="Enter Voucher Code" />
+          <button class="apply-btn" type="button">APPLY</button>
+        </div>
+
+        <div class="total">
+          <span>Total</span>
+          <strong>৳ <span id="total">0</span></strong>
+        </div>
+
+        <button class="checkout" type="button">
+          PROCEED TO CHECKOUT (<span id="checkoutCount">0</span>)
+        </button>
+      </aside>
+
+    </div>
+  </div>
+
+  <script>
+    function money(n){ return Number(n || 0).toFixed(0); }
+
+    function recalc(){
+      const items = [...document.querySelectorAll(".cart-item")];
+      const checkedItems = items.filter(it => it.querySelector(".item-check")?.checked);
+
+      let subtotal = 0;
+      let count = 0;
+
+      checkedItems.forEach(it => {
+        const price = Number(it.dataset.price || 0);
+        const qty = Number(it.querySelector(".qty-val")?.textContent || 1);
+        subtotal += price * qty;
+        count += qty;
+      });
+
+      document.getElementById("subtotal").textContent = money(subtotal);
+      document.getElementById("total").textContent = money(subtotal); // shipping 0 in demo
+      document.getElementById("itemsText").textContent = count;
+      document.getElementById("checkoutCount").textContent = count;
+
+      // select all + selected count
+      document.getElementById("selCount").textContent = checkedItems.length;
+      const allChecked = items.length > 0 && checkedItems.length === items.length;
+      document.getElementById("selectAll").checked = allChecked;
+    }
+
+    // Select all
+    document.getElementById("selectAll").addEventListener("change", (e) => {
+      const checked = e.target.checked;
+      document.querySelectorAll(".item-check").forEach(ch => ch.checked = checked);
+      recalc();
+    });
+
+    // Seller checkbox (toggle all items under seller - simple demo since only one seller block)
+    const sellerCheck = document.querySelector(".seller-check");
+    if (sellerCheck){
+      sellerCheck.addEventListener("change", (e) => {
+        document.querySelectorAll(".item-check").forEach(ch => ch.checked = e.target.checked);
+        recalc();
+      });
+    }
+
+    // Per item checkbox
+    document.querySelectorAll(".item-check").forEach(ch => {
+      ch.addEventListener("change", recalc);
+    });
+
+    // Quantity +/-
+    document.addEventListener("click", (e) => {
+      const row = e.target.closest(".cart-item");
+      if (!row) return;
+
+      const qtyEl = row.querySelector(".qty-val");
+      let qty = Number(qtyEl.textContent || 1);
+
+      if (e.target.classList.contains("plus")) {
+        qty = Math.min(99, qty + 1);
+        qtyEl.textContent = qty;
+        recalc();
+      }
+      if (e.target.classList.contains("minus")) {
+        qty = Math.max(1, qty - 1);
+        qtyEl.textContent = qty;
+        recalc();
+      }
+    });
+
+    // Remove single item
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const row = btn.closest(".cart-item");
+        if (row) row.remove();
+        recalc();
+      });
+    });
+
+    // Delete selected
+    document.getElementById("deleteSelectedBtn").addEventListener("click", () => {
+      document.querySelectorAll(".cart-item").forEach(it => {
+        const ch = it.querySelector(".item-check");
+        if (ch && ch.checked) it.remove();
+      });
+      recalc();
+    });
+
+    // Delete seller (demo: remove all items)
+    document.getElementById("deleteSellerBtn").addEventListener("click", () => {
+      document.querySelectorAll(".cart-item").forEach(it => it.remove());
+      recalc();
+    });
+
+    // Init
+    recalc();
+  </script>
+</body>
+
+  <!-- FOOTER -->
+  <footer class="site-footer site-footer--light" style="background:var(--white);padding:60px 0 40px;border-top:1px solid var(--border);margin-top:60px;">
+    <div class="container">
+      <div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:3rem;">
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo" style="font-size:1.3rem;font-weight:700;letter-spacing:-1px;color:var(--secondary);display:block;margin-bottom:1rem;">Luxe<span style="color:var(--primary)">Store</span>.</a>
+          <p class="footer-text" style="color:var(--muted2);line-height:1.6;font-size:0.95rem;">Curating the finest essentials for the modern minimalist lifestyle. Quality you can feel, style you can trust.</p>
+        </div>
+        <div class="footer-col">
+          <h4 style="font-size:1.2rem;margin-bottom:1.5rem;color:var(--secondary);">Shop</h4>
+          <ul style="list-style:none;padding:0;">
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html">New Arrivals</a></li>
+            <li><a href="shop.html">Accessories</a></li>
+            <li><a href="shop.html">Men</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="font-size:1.2rem;margin-bottom:1.5rem;color:var(--secondary);">Help</h4>
+          <ul style="list-style:none;padding:0;">
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="font-size:1.2rem;margin-bottom:1.5rem;color:var(--secondary);">Newsletter</h4>
+          <p class="footer-text" style="color:var(--muted2);font-size:0.9rem;margin-bottom:1rem;">Subscribe to our updates.</p>
+          <form class="newsletter" action="#" method="post" id="newsletterForm" style="display:flex;gap:10px;">
+            <label class="sr-only" for="newsletterEmail">Email</label>
+            <input id="newsletterEmail" type="email" name="email" placeholder="Email address" required style="flex:1;border:1px solid var(--border);padding:0.8rem;border-radius:4px;background:#fff;">
+            <button type="submit" class="btn-sm" style="background:var(--primary);color:#fff;border:none;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:var(--transition);padding:0.8rem 2rem;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright" style="text-align:center;border-top:1px solid var(--border);padding-top:20px;color:var(--muted2);font-size:0.9rem;">&copy; 2026 LuxeStore. All rights reserved. Designed with HTML5 &amp; CSS3.</div>
+    </div>
+  </footer>
+</html>

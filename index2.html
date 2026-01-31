@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LuxeStore | Final Edition</title>
+  <meta name="description" content="LuxeStore Final Edition - Editorial E-Commerce HTML Template" />
+  <meta name="keywords" content="ecommerce, fashion, editorial, html template, store" />
+  <meta name="author" content="Your Name" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="theme-editorial">
+
+  <!-- =========================
+    Header
+  ========================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Luxe<span class="logo-italic">Store</span>.</a>
+
+      <div class="nav-icons">
+       <button class="cart-btn" type="button" aria-label="View Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-count" id="cartCount">3</span>
+        </button>
+
+        <button class="menu-toggle" id="menuBtn" aria-controls="navOverlay" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+    Overlay Navigation
+  ========================== -->
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <button class="close-menu" id="closeMenu" aria-label="Close Menu">&times;</button>
+
+    <div class="nav-links-col">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#accessories">Accessories</a></li>
+        <li><a href="#apparel">Apparel</a></li>
+        <li><a href="#footwear">Footwear</a></li>
+        <li><a href="#new-arrivals">New Arrivals</a></li>
+        <li><a href="#bags">Bags</a></li>
+        <li><a href="#jewelry">Jewelry</a></li>
+        <li><a href="#decor">Home &amp; Decor</a></li>
+        <li><a href="#journal">Journal</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-info-col">
+      <div class="nav-info-title">Est. 2023</div>
+      <p class="nav-info-text">Curating the finest essentials for the modern lifestyle.</p>
+      <a href="#" class="nav-contact-link">Contact Us</a>
+    </div>
+  </nav>
+<!-- =========================
+    Cart Drawer
+  ========================== -->
+
+  <!-- Cart Drawer Overlay -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <!-- Header -->
+    <div class="cart-drawer-header">
+      <span>My Cart (<span id="cartDrawerCount">3</span>)</span>
+      <button class="cart-drawer-close" id="cartDrawerClose" aria-label="Close Cart">&times;</button>
+    </div>
+
+    <!-- Body - Cart Items -->
+    <div class="cart-drawer-body">
+      <!-- Cart Item 1 -->
+      <div class="cart-drawer-item">
+        <img src="https://picsum.photos/seed/watch1/400/400" alt="Obsidian Chronograph" class="cart-drawer-thumb">
+        <div class="cart-drawer-info">
+          <div class="cart-drawer-title">Obsidian Chronograph Watch</div>
+          <div class="cart-drawer-meta">Color: Black | Size: M</div>
+          <div class="cart-drawer-price">$1,200.00</div>
+        </div>
+        <button class="cart-drawer-remove" aria-label="Remove item">&times;</button>
+      </div>
+
+      <!-- Cart Item 2 -->
+      <div class="cart-drawer-item">
+        <img src="https://picsum.photos/seed/bag1/400/400" alt="Leather Tote Bag" class="cart-drawer-thumb">
+        <div class="cart-drawer-info">
+          <div class="cart-drawer-title">Leather Tote Bag</div>
+          <div class="cart-drawer-meta">Color: Brown | Size: One Size</div>
+          <div class="cart-drawer-price">$450.00</div>
+        </div>
+        <button class="cart-drawer-remove" aria-label="Remove item">&times;</button>
+      </div>
+
+      <!-- Cart Item 3 -->
+      <div class="cart-drawer-item">
+        <img src="https://picsum.photos/seed/shoes1/400/400" alt="Classic Sneakers" class="cart-drawer-thumb">
+        <div class="cart-drawer-info">
+          <div class="cart-drawer-title">Classic Sneakers</div>
+          <div class="cart-drawer-meta">Color: White | Size: 42</div>
+          <div class="cart-drawer-price">$180.00</div>
+        </div>
+        <button class="cart-drawer-remove" aria-label="Remove item">&times;</button>
+      </div>
+    </div>
+
+    <!-- Footer - Total & Buttons -->
+    <div class="cart-drawer-footer">
+      <!-- Cart Total Calculation -->
+      <div class="cart-drawer-total">
+        <div class="cart-drawer-total-row">
+          <span class="cart-drawer-total-label">Subtotal:</span>
+          <span class="cart-drawer-total-value">$1,830.00</span>
+        </div>
+        <div class="cart-drawer-total-row">
+          <span class="cart-drawer-total-label">Shipping:</span>
+          <span class="cart-drawer-total-value">$20.00</span>
+        </div>
+        <div class="cart-drawer-total-row">
+          <span class="cart-drawer-total-label">Total:</span>
+          <span class="cart-drawer-total-value" id="cartDrawerTotal">$1,850.00</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cart-drawer-buttons">
+        <a href="cart.html" class="cart-drawer-btn cart-drawer-view-btn">View Cart</a>
+        <a href="checkout.html" class="cart-drawer-btn cart-drawer-checkout-btn">Checkout</a>
+      </div>
+    </div>
+  </div>
+  <!-- =========================
+    Hero
+  ========================== -->
+  <section id="hero" class="hero">
+    <img src="assets/images/hero.jpg" alt="Fashion" class="hero-bg" />
+    <div class="hero-content">
+      <span class="hero-subtitle">The Colorful Collection</span>
+      <h1 class="hero-title">Vibrant<br />Essence.</h1>
+      <a href="#accessories" class="btn-outline">Explore Collections</a>
+    </div>
+  </section>
+
+  <!-- =========================
+    Marquee
+  ========================== -->
+  <div class="marquee-container" aria-label="Brand marquee">
+    <div class="marquee-content">
+      Summer Colors • Minimalist Design • Luxury Materials • Timeless Fashion • Summer Colors • Minimalist Design • Luxury Materials • Timeless Fashion •
+    </div>
+  </div>
+
+  <!-- =========================
+    Accessories (Bento)
+  ========================== -->
+  <section id="accessories" class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title-2">Accessories</h2>
+      <a href="#" class="view-link">View All</a>
+    </div>
+
+    <div class="bento-grid">
+      <article class="bento-item large">
+        <img src="assets/images/accessories/acc-1.jpg" alt="Obsidian Chronograph" class="bento-img" />
+        <div class="bento-overlay">
+          <h3 class="bento-title">Obsidian Chronograph</h3>
+          <p>$1,200.00</p>
+          <button class="add-btn add-to-cart-btn" data-name="Obsidian Chronograph">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="bento-item">
+        <img src="assets/images/accessories/acc-2.jpg" alt="Leather Clutch" class="bento-img" />
+        <div class="bento-overlay">
+          <h3 class="bento-title">Leather Clutch</h3>
+          <p>$350.00</p>
+        </div>
+      </article>
+
+      <article class="bento-item">
+        <img src="assets/images/accessories/acc-3.jpg" alt="Aviator Shades" class="bento-img" />
+        <div class="bento-overlay">
+          <h3 class="bento-title">Aviator Shades</h3>
+          <p>$180.00</p>
+        </div>
+      </article>
+
+      <article class="bento-item">
+        <img src="assets/images/accessories/acc-4.jpg" alt="Silver Band" class="bento-img" />
+        <div class="bento-overlay">
+          <h3 class="bento-title">Silver Band</h3>
+          <p>$450.00</p>
+        </div>
+      </article>
+
+      <article class="bento-item">
+        <img src="assets/images/accessories/acc-5.jpg" alt="Silk Scarf" class="bento-img" />
+        <div class="bento-overlay">
+          <h3 class="bento-title">Silk Scarf</h3>
+          <p>$120.00</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+    Apparel (Zig-Zag)
+  ========================== -->
+  <section id="apparel" class="section-padding apparel-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-2">Apparel Collection</h2>
+        <a href="#" class="view-link">View All</a>
+      </div>
+
+      <div class="zig-zag-row">
+        <div class="zz-img-container">
+          <img src="assets/images/apparel/apparel-1.jpg" alt="The Midnight Trench" class="zz-img" />
+        </div>
+        <div class="zz-text">
+          <span class="zz-cat">Outerwear</span>
+          <h3 class="zz-title">The Midnight Trench</h3>
+          <p class="zz-desc">Crafted from premium Italian wool, this trench coat features a tailored fit and oversized lapels.</p>
+          <a href="#" class="zz-btn">Shop The Look</a>
+        </div>
+      </div>
+
+      <div class="zig-zag-row reverse">
+        <div class="zz-img-container">
+          <img src="assets/images/apparel/apparel-2.jpg" alt="Merino Cashmere Knit" class="zz-img" />
+        </div>
+        <div class="zz-text">
+          <span class="zz-cat">Essentials</span>
+          <h3 class="zz-title">Merino Cashmere Knit</h3>
+          <p class="zz-desc">Softness redefined. Our 100% organic cashmere sweater provides warmth without weight.</p>
+          <a href="#" class="zz-btn">Shop The Look</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+    Footwear
+  ========================== -->
+  <section id="footwear" class="section-padding container">
+    <div class="section-center">
+      <h2 class="section-title-2">Loafers &amp; Footwear</h2>
+      <p class="section-muted">Classic silhouettes for the modern individual.</p>
+    </div>
+
+    <div class="footwear-grid">
+      <article class="fw-card">
+        <div class="fw-img-box"><img src="assets/images/footwear/fw-1.jpg" alt="The Penny Loafer" /></div>
+        <div class="fw-info">
+          <h3>The Penny Loafer</h3><span>$290.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Penny Loafer">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="fw-card">
+        <div class="fw-img-box"><img src="assets/images/footwear/fw-2.jpg" alt="Suede Tassel" /></div>
+        <div class="fw-info">
+          <h3>Suede Tassel</h3><span>$315.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Suede Tassel">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="fw-card">
+        <div class="fw-img-box"><img src="assets/images/footwear/fw-3.jpg" alt="Chelsea Boot" /></div>
+        <div class="fw-info">
+          <h3>Chelsea Boot</h3><span>$350.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Chelsea Boot">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="fw-card">
+        <div class="fw-img-box"><img src="assets/images/footwear/fw-4.jpg" alt="Cap Toe Oxford" /></div>
+        <div class="fw-info">
+          <h3>Cap Toe Oxford</h3><span>$380.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Cap Toe Oxford">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+    New Arrivals (Scroll)
+  ========================== -->
+  <section id="new-arrivals" class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title-2">Just Dropped</h2>
+      <a href="#" class="view-link">View All</a>
+    </div>
+
+    <div class="product-carousel">
+      <article class="product-card-minimal">
+        <div class="p-img"><img src="assets/images/arrivals/a-1.jpg" alt="Wool Beanie"></div>
+        <div class="p-info">
+          <h4>Wool Beanie</h4><span>$45.00</span>
+          <button class="p-add-btn add-to-cart-btn" data-name="Wool Beanie">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card-minimal">
+        <div class="p-img"><img src="assets/images/arrivals/a-2.jpg" alt="Leather Gloves"></div>
+        <div class="p-info">
+          <h4>Leather Gloves</h4><span>$85.00</span>
+          <button class="p-add-btn add-to-cart-btn" data-name="Leather Gloves">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card-minimal">
+        <div class="p-img"><img src="assets/images/arrivals/a-3.jpg" alt="Silver Cufflink"></div>
+        <div class="p-info">
+          <h4>Silver Cufflink</h4><span>$110.00</span>
+          <button class="p-add-btn add-to-cart-btn" data-name="Silver Cufflink">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card-minimal">
+        <div class="p-img"><img src="assets/images/arrivals/a-4.jpg" alt="Suede Belt"></div>
+        <div class="p-info">
+          <h4>Suede Belt</h4><span>$95.00</span>
+          <button class="p-add-btn add-to-cart-btn" data-name="Suede Belt">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+    Bags
+  ========================== -->
+  <section id="bags" class="section-padding container">
+    <div class="section-header">
+      <h2 class="section-title-2">Bags &amp; Luggage</h2>
+      <a href="#" class="view-link">View All</a>
+    </div>
+
+    <div class="bags-grid">
+      <article class="bag-card">
+        <div class="bag-img"><img src="assets/images/bags/bag-1.jpg" alt="Canvas Weekend Tote"></div>
+        <div class="bag-body">
+          <h3 class="bag-title">Canvas Weekend Tote</h3>
+          <p class="bag-desc">Durable cotton canvas with reinforced leather handles.</p>
+          <span class="bag-price">$220.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Canvas Tote">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="bag-card">
+        <div class="bag-img"><img src="assets/images/bags/bag-2.jpg" alt="Leather Commuter"></div>
+        <div class="bag-body">
+          <h3 class="bag-title">Leather Commuter</h3>
+          <p class="bag-desc">Spacious backpack with dedicated laptop compartment.</p>
+          <span class="bag-price">$185.00</span>
+          <button class="add-btn add-to-cart-btn" data-name="Leather Commuter">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+    Jewelry
+  ========================== -->
+  <section id="jewelry" class="section-padding jewelry-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-2">Fine Jewelry</h2>
+        <a href="#" class="view-link">View All</a>
+      </div>
+
+      <div class="jewelry-list">
+
+        <article class="jewelry-row">
+          <div class="jewelry-thumb"><img src="assets/images/jewelry/j-1.jpg" alt="Pearl Drop Necklace" /></div>
+          <div class="jewelry-body">
+            <h3 class="jewelry-title">Pearl Drop Necklace</h3>
+            <p class="jewelry-desc">18k Gold plated chain with freshwater pearl pendant.</p>
+            <div class="jewelry-bottom">
+              <span class="jewelry-price">$350.00</span>
+              <button class="btn-mini add-to-cart-btn" data-name="Pearl Necklace">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="jewelry-row">
+          <div class="jewelry-thumb"><img src="assets/images/jewelry/j-2.jpg" alt="Signet Band" /></div>
+          <div class="jewelry-body">
+            <h3 class="jewelry-title">Signet Band</h3>
+            <p class="jewelry-desc">Sterling silver signet ring, hand-engraved.</p>
+            <div class="jewelry-bottom">
+              <span class="jewelry-price">$125.00</span>
+              <button class="btn-mini add-to-cart-btn" data-name="Signet Band">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="jewelry-row">
+          <div class="jewelry-thumb"><img src="assets/images/jewelry/j-3.jpg" alt="Hoop Studs" /></div>
+          <div class="jewelry-body">
+            <h3 class="jewelry-title">Hoop Studs</h3>
+            <p class="jewelry-desc">Minimalist gold vermeil hoops, perfect for daily wear.</p>
+            <div class="jewelry-bottom">
+              <span class="jewelry-price">$95.00</span>
+              <button class="btn-mini add-to-cart-btn" data-name="Hoop Studs">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+    Home & Decor
+  ========================== -->
+  <section id="decor" class="section-padding container">
+    <div class="section-center">
+      <h2 class="section-title-2">Home &amp; Decor</h2>
+      <p class="section-muted">Elevating your everyday surroundings.</p>
+    </div>
+
+    <div class="decor-grid">
+      <article class="decor-item tall">
+        <img src="assets/images/decor/d-1.jpg" alt="Ceramic Vase" class="decor-img" />
+        <div class="decor-overlay"><h4 class="decor-title">Ceramic Vase</h4><span class="decor-price">$120.00</span></div>
+      </article>
+
+      <article class="decor-item">
+        <img src="assets/images/decor/d-2.jpg" alt="Soy Candles" class="decor-img" />
+        <div class="decor-overlay"><h4 class="decor-title">Soy Candles</h4><span class="decor-price">$45.00</span></div>
+      </article>
+
+      <article class="decor-item wide">
+        <img src="assets/images/decor/d-3.jpg" alt="Linen Throw" class="decor-img" />
+        <div class="decor-overlay"><h4 class="decor-title">Linen Throw</h4><span class="decor-price">$180.00</span></div>
+      </article>
+
+      <article class="decor-item">
+        <img src="assets/images/decor/d-4.jpg" alt="Oak Frame" class="decor-img" />
+        <div class="decor-overlay"><h4 class="decor-title">Oak Frame</h4><span class="decor-price">$65.00</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================
+    Journal
+  ========================== -->
+  <section id="journal" class="section-padding container">
+    <div class="section-center">
+      <h2 class="section-title-2">The Journal</h2>
+      <p class="section-muted">Editorials, Interviews, and Culture.</p>
+    </div>
+
+    <div class="journal-grid">
+      <div class="journal-col">
+        <article class="journal-card">
+          <div class="journal-img-wrapper journal-img-lg">
+            <img src="assets/images/blog/blog-main.jpg" alt="Monochrome: The Eternal Trend">
+          </div>
+          <div class="journal-meta"><span>Oct 24</span><span>Cover Story</span></div>
+          <h3 class="journal-title">Monochrome: The Eternal Trend</h3>
+          <p class="journal-desc">Why black and white never fades away in world of high fashion.</p>
+          <a href="#" class="read-link">Read Full Story</a>
+        </article>
+      </div>
+
+      <div class="journal-col">
+        <article class="journal-card">
+          <div class="journal-img-wrapper journal-img-sm">
+            <img src="assets/images/blog/blog-1.jpg" alt="Behind The Lens">
+          </div>
+          <div class="journal-meta"><span>Oct 20</span><span>Interview</span></div>
+          <h3 class="journal-title journal-title-sm">Behind The Lens</h3>
+        </article>
+
+        <article class="journal-card">
+          <div class="journal-img-wrapper journal-img-sm">
+            <img src="assets/images/blog/blog-2.jpg" alt="The Return of Film Photography">
+          </div>
+          <div class="journal-meta"><span>Oct 15</span><span>Trend</span></div>
+          <h3 class="journal-title journal-title-sm">The Return of Film Photography</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+    Footer
+  ========================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <a href="index.html" class="footer-logo">LuxeStore.</a>
+
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">Pinterest</a>
+      </div>
+
+      <div class="copyright">
+        &copy; <span id="year"></span> LuxeStore Final. Designed for High Fashion.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Item added to cart</div>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

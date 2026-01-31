@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeStore | Shop Collection</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="shop1">
+
+    <!-- NAV BAR (Same as Home 1) -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Luxe<span>Store</span>.</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <button class="cart-btn" aria-label="View Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHOP PAGE BANNER (NEW) -->
+    <section class="shop-banner">
+        <img src="https://picsum.photos/seed/collection/1600/600" alt="Collection Banner" class="shop-banner-img">
+        <div class="banner-overlay">
+            <span class="banner-tag">New Season</span>
+            <h2 class="banner-title">The Spring Collection</h2>
+            <p class="banner-desc">Discover the vibrant new arrivals featuring premium materials and timeless cuts.</p>
+            <a href="#shop-grid" class="banner-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- MAIN SHOP LAYOUT -->
+    <main class="container shop-layout">
+        
+        <!-- SIDEBAR FILTERS -->
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3 class="filter-title">Categories</h3>
+                <ul class="filter-list">
+                    <li class="active">All Products</li>
+                    <li>Apparel</li>
+                    <li>Footwear</li>
+                    <li>Bags</li>
+                    <li>Accessories</li>
+                </ul>
+            </div>
+
+                        <div class="filter-section">
+                                <h3 class="filter-title">Price Range</h3>
+                                <div class="price-range-filter">
+                                    <div class="price-slider">
+                                        <input type="range" min="0" max="1000" value="100" id="priceMin" class="price-range-input">
+                                        <input type="range" min="0" max="1000" value="500" id="priceMax" class="price-range-input">
+                                    </div>
+                                    <div class="price-values">
+                                        <span class="price-value" id="priceMinValue">100</span>
+                                        <span class="price-value" id="priceMaxValue">500</span>
+                                    </div>
+                                </div>
+                        </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Size</h3>
+                <ul class="filter-list">
+                    <li><input type="checkbox" id="s" checked><label for="s" style="margin-left:10px">Small</label></li>
+                    <li><input type="checkbox" id="m"><label for="m" style="margin-left:10px">Medium</label></li>
+                    <li><input type="checkbox" id="l"><label for="l" style="margin-left:10px">Large</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Availability</h3>
+                <ul class="filter-list">
+                    <li><input type="checkbox" id="stock" checked><label for="stock" style="margin-left:10px">In Stock</label></li>
+                    <li><input type="checkbox" id="sale"><label for="sale" style="margin-left:10px">On Sale</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- SHOP CONTENT -->
+        <section class="shop-content">
+            <div class="shop-toolbar">
+                <span class="result-count">Showing 8 results</span>
+                <select class="sort-select">
+                    <option>Sort by: Featured</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Newest Arrivals</option>
+                </select>
+            </div>
+
+            <div class="shop-grid" id="shop-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop1/400/400" alt="Watch" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Minimalist Watch">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Minimalist Watch</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$129.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop2/400/400" alt="Bag" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Leather Tote">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Bags</span>
+                        <h3 class="product-title">Leather Tote</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$89.50</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop3/400/400" alt="Sneakers" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Urban Sneakers">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Footwear</span>
+                        <h3 class="product-title">Urban Sneakers</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$75.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop4/400/400" alt="Hoodie" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Cotton Hoodie">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Apparel</span>
+                        <h3 class="product-title">Cotton Hoodie</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$45.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop5/400/400" alt="Jacket" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Denim Jacket">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Apparel</span>
+                        <h3 class="product-title">Denim Jacket</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$85.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop6/400/400" alt="Sunglasses" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Aviator Sunglasses">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Aviator Sunglasses</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$45.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop7/400/400" alt="Scarf" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Silk Scarf">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Silk Scarf</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$35.00</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="https://picsum.photos/seed/shop8/400/400" alt="Ring" loading="lazy">
+                        <div class="add-to-cart-overlay">
+                            <button class="btn-sm add-to-cart-btn" data-name="Silver Band">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Silver Band</h3>
+                        <div class="product-footer">
+                            <span class="product-price">$450.00</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Same as Home 1) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color:var(--secondary-color); display:block; margin-bottom:1rem;">Luxe<span>Store</span>.</a>
+                    <p style="color: var(--light-text); line-height: 1.6;">
+                        Your destination for premium fashion and lifestyle products. Designed for the modern individual.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Men</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="color: var(--light-text); margin-bottom: 1rem; font-size: 0.9rem;">Subscribe to our newsletter for latest updates.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-sm" style="width: 100%; margin-top: 0.5rem; background: var(--primary-color);">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 LuxeStore. All rights reserved. Designed with HTML5 & CSS3.
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast">Item added to cart!</div>
+
+    <!-- JAVASCRIPT (ES6) -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

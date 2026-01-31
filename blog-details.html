@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+    Basic Page Needs
+  ======================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Art of Minimalism | LuxeStore</title>
+  <meta name="description" content="LuxeStore Journal - blog details page." />
+
+  <!-- ======================================================
+    Fonts
+  ======================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ======================================================
+    CSS
+  ======================================================= -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="page-blog-details">
+
+  <!-- ======================================================
+    Header (same component style as other pages)
+  ======================================================= -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="LuxeStore Home">Luxe<span>Store</span>.</a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog-grid.html" class="is-active">Journal</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-icons">
+        <button class="cart-btn" type="button" aria-label="View Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================
+    Main
+  ======================================================= -->
+  <main>
+
+    <!-- Breadcrumb Hero -->
+    <section class="breadcrumb-hero" aria-label="Blog header">
+      <img class="breadcrumb-hero__img"
+           src="https://picsum.photos/seed/breadcrumb/1600/400"
+           alt="Blog header background" loading="lazy" />
+      <div class="breadcrumb-hero__overlay">
+        <h1 class="breadcrumb-hero__title">The Philosophy of Void</h1>
+      </div>
+    </section>
+
+    <!-- Content + Sidebar -->
+    <section class="container blog-detail-layout">
+
+      <!-- Article -->
+      <article class="blog-detail-article">
+
+        <!-- Featured Image -->
+        <div class="post-hero">
+          <img src="https://picsum.photos/seed/blogdetail1/1600/900"
+               alt="Minimalist Interior" loading="lazy" />
+        </div>
+
+        <!-- Author -->
+        <div class="author-info">
+          <img src="https://picsum.photos/seed/author/100/100"
+               alt="Elena Vostokova" class="author-avatar" loading="lazy" />
+          <div>
+            <div class="author-name">Elena Vostokova</div>
+            <div class="author-role">Editor in Chief</div>
+          </div>
+        </div>
+
+        <!-- Meta -->
+        <div class="post-meta">October 24, 2023</div>
+
+        <!-- Body -->
+        <div class="post-body">
+          <p>Minimalism isn't about having less. It's about finding the essence of things, the silence between the noise. In this exploration of modern living, we look at the concept of "negative space"—not as emptiness, but as a powerful tool for clarity and focus.</p>
+
+          <p>From the architecture of our stores to the layout of our homes, every element serves a purpose. The void allows the object to breathe, to exist without apology.</p>
+
+          <blockquote class="blockquote">
+            "Perfection is achieved, not when there is nothing left to add, but when there is nothing left to take away."
+          </blockquote>
+
+          <h3>Embracing the void in design</h3>
+
+          <p>When designing our new collection, we started with a blank canvas. We asked ourselves: "What does this product need?" Not "What can we add?" By stripping away the non-essential, we arrived at the core of functionality.</p>
+
+          <p>This philosophy translates beautifully to our blog, the clothing we choose, and the way we present our brand. It’s about confidence. It’s about letting the product speak for itself without being drowned in unnecessary detail.</p>
+
+          <p>Join us as we deconstruct the elements of modern minimalism in fashion and lifestyle, and discover how you can apply these principles to your own life.</p>
+
+        </div>
+        <!-- Prev/Next Navigation -->
+        <nav class="blog-nav-pager" aria-label="Blog navigation" style="display:flex; justify-content:space-between; gap:1rem; margin-top:2.5rem;">
+          <a href="#" class="btn-prev" style="display:inline-block; background:#f3f4f6; color:#374151; border-radius:6px; padding:0.8rem 2.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">&larr; Previous</a>
+          <a href="#" class="btn-next" style="display:inline-block; background:#4f46e5; color:#fff; border-radius:6px; padding:0.8rem 2.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">Next &rarr;</a>
+        </nav>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="blog-sidebar" aria-label="Blog sidebar">
+
+        <!-- Search -->
+        <div class="sidebar-box">
+          <h3 class="sidebar-title">Search Journal</h3>
+
+          <form class="sidebar-search" action="#" method="get" novalidate>
+            <label class="sr-only" for="journalSearch">Search</label>
+            <input id="journalSearch" type="text" placeholder="Type keywords..." />
+            <span class="sidebar-search__icon" aria-hidden="true">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+          </form>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-box">
+          <h3 class="sidebar-title">Categories</h3>
+          <div class="chip-group" role="group" aria-label="Blog categories">
+            <button class="chip is-active" type="button">All</button>
+            <button class="chip" type="button">Fashion</button>
+            <button class="chip" type="button">Culture</button>
+            <button class="chip" type="button">Lifestyle</button>
+            <button class="chip" type="button">Industry</button>
+          </div>
+        </div>
+
+        <!-- Archive -->
+        <div class="sidebar-box">
+          <h3 class="sidebar-title">Archive</h3>
+          <ul class="archive-list">
+            <li><a href="#">October 2023</a></li>
+            <li><a href="#">September 2023</a></li>
+            <li><a href="#">August 2023</a></li>
+            <li><a href="#">July 2023</a></li>
+          </ul>
+        </div>
+
+        <!-- Optional Share (to keep your “copy link” interaction) -->
+        <div class="sidebar-box">
+          <h3 class="sidebar-title">Share</h3>
+          <div class="share-buttons">
+            <button class="share-btn" type="button" data-copy-link="true">Copy Link</button>
+            <button class="share-btn" type="button">Share</button>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="related-section" aria-label="More stories">
+      <div class="container">
+        <h2 class="section-header">More Stories</h2>
+
+        <div class="related-grid">
+          <article class="related-card">
+            <a href="blog-details.html">
+              <div class="related-img">
+                <img src="https://picsum.photos/seed/rel1/400/300" alt="The Future of Retail" loading="lazy" />
+              </div>
+              <div class="related-content">
+                <span class="related-date">Oct 20</span>
+                <h3 class="related-title">The Future of Retail</h3>
+              </div>
+            </a>
+          </article>
+
+          <article class="related-card">
+            <a href="blog-details.html">
+              <div class="related-img">
+                <img src="https://picsum.photos/seed/rel2/400/300" alt="Defining Luxury" loading="lazy" />
+              </div>
+              <div class="related-content">
+                <span class="related-date">Oct 18</span>
+                <h3 class="related-title">Defining Luxury</h3>
+              </div>
+            </a>
+          </article>
+
+          <article class="related-card">
+            <a href="blog-details.html">
+              <div class="related-img">
+                <img src="https://picsum.photos/seed/rel3/400/300" alt="Material Matters" loading="lazy" />
+              </div>
+              <div class="related-content">
+                <span class="related-date">Oct 15</span>
+                <h3 class="related-title">Material Matters</h3>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+    Footer
+  ======================================================= -->
+  <footer class="site-footer site-footer--light">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo">Luxe<span>Store</span>.</a>
+          <p class="footer-text">
+            Curating the finest essentials for the modern minimalist lifestyle. Quality you can feel, style you can trust.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html">New Arrivals</a></li>
+            <li><a href="shop.html">Accessories</a></li>
+            <li><a href="shop.html">Men</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="footer-text">Subscribe to our updates.</p>
+
+          <form class="newsletter" action="#" method="post" id="newsletterForm">
+            <label class="sr-only" for="newsletterEmail">Email</label>
+            <input id="newsletterEmail" type="email" name="email" placeholder="Email address" required />
+            <button type="submit" class="btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 LuxeStore. All rights reserved. Designed with HTML5 &amp; CSS3.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+    JS
+  ======================================================= -->
+  <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

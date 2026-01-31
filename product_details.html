@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+    Basic Page Needs
+  ======================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LuxeStore | Product Details</title>
+  <meta name="description" content="LuxeStore product details page." />
+
+  <!-- ======================================================
+    Fonts
+  ======================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ======================================================
+    CSS
+  ======================================================= -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="page-product">
+
+  <!-- ======================================================
+    Header
+  ======================================================= -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="LuxeStore Home">Luxe<span>Store</span>.</a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-icons">
+        <button class="cart-btn" type="button" aria-label="View Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="cartCount">2</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+      <!-- CART DRAWER -->
+      <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+          <span>My Cart (<span id="cartDrawerCount">05</span>)</span>
+          <button class="cart-drawer-close" id="cartDrawerClose" aria-label="Close Cart">&times;</button>
+        </div>
+        <div class="cart-drawer-body">
+          <!-- Example cart items (replace with dynamic content as needed) -->
+          <div class="cart-drawer-item">
+            <img src="https://i.imgur.com/1Q9Z1Zm.png" alt="Product" class="cart-drawer-thumb">
+            <div class="cart-drawer-info">
+              <div class="cart-drawer-title">Men’s Fashionable Hoodie</div>
+              <div class="cart-drawer-meta">$140 &nbsp; <span class="cart-drawer-color">Color: Red</span> <span class="cart-drawer-size">Size: XL</span></div>
+            </div>
+            <button class="cart-drawer-remove" aria-label="Remove">&times;</button>
+          </div>
+          <!-- ...repeat for more items... -->
+        </div>
+        <div class="cart-drawer-footer">
+          <div class="cart-drawer-total">
+            <span>Sub Total</span>
+            <span id="cartDrawerTotal">$429.00</span>
+          </div>
+          <button class="cart-drawer-view-btn">View Cart</button>
+        </div>
+      </div>
+  </header>
+
+  <!-- ======================================================
+    Main
+  ======================================================= -->
+  <main class="container">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a> <span>/</span>
+      <a href="shop.html">Shop</a> <span>/</span>
+      <a href="#">Accessories</a> <span>/</span>
+      <span class="breadcrumb-current">Obsidian Chronograph</span>
+    </nav>
+
+    <!-- Product Wrapper -->
+    <section class="product-wrapper" aria-label="Product Details">
+
+      <!-- Left Column -->
+      <div class="product-info-col">
+        <span class="p-tag">New Arrival</span>
+
+        <h1 class="p-title">Obsidian Chronograph</h1>
+        <div class="p-price">$1,200.00</div>
+
+        <p class="p-desc">
+          Crafted from aerospace-grade titanium with a sapphire crystal face. Water resistant to 50 meters.
+          Features automatic movement and a genuine leather strap. A true statement piece for the modern individualist.
+        </p>
+
+        <!-- Color Selection -->
+        <div class="options-section">
+          <div class="options-title">
+            Color:
+            <span class="options-value" id="selectedColor">Midnight Black</span>
+          </div>
+
+          <div class="selector-group" role="group" aria-label="Choose color">
+            <button class="swatch-btn active" type="button" aria-label="Midnight Black"
+              data-color="Midnight Black" style="background-color:#111"></button>
+
+            <button class="swatch-btn" type="button" aria-label="Charcoal"
+              data-color="Charcoal" style="background-color:#444"></button>
+
+            <button class="swatch-btn" type="button" aria-label="Stone Gray"
+              data-color="Stone Gray" style="background-color:#888"></button>
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="options-section">
+          <div class="options-title">Size</div>
+
+          <div class="selector-group" role="group" aria-label="Choose size">
+            <button class="size-btn" type="button" data-size="S">S</button>
+            <button class="size-btn active" type="button" data-size="M" aria-pressed="true">M</button>
+            <button class="size-btn" type="button" data-size="L">L</button>
+            <button class="size-btn" type="button" data-size="XL">XL</button>
+          </div>
+        </div>
+        <!-- Quantity & Actions Row -->
+        <div class="options-section">
+          <div class="options-title">Quantity</div>
+
+          <div class="qty-actions-row">
+            <div class="qty-wrapper" aria-label="Quantity selector">
+              <button class="qty-btn" type="button" data-qty="-1" aria-label="Decrease quantity">-</button>
+              <span class="qty-value" id="qtyValue" aria-live="polite">1</span>
+              <button class="qty-btn" type="button" data-qty="1" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="action-btn" type="button">Add to Cart</button>
+            <button class="action-btn btn-outline" type="button">Add to Wishlist</button>
+          </div>
+        </div>
+
+        <!-- Accordion Info -->
+        <div class="product-accordion">
+          <details>
+            <summary class="accordion-summary">
+              <span>Product Details &amp; Care</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </summary>
+
+            <div class="accordion-content">
+              <p><strong>Material:</strong> Grade 5 Titanium</p>
+              <p><strong>Movement:</strong> Automatic Swiss Made</p>
+              <p><strong>Strap:</strong> Italian Leather (24mm)</p>
+              <p><strong>Water Resistance:</strong> 5 ATM (50 meters)</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="product-gallery-col">
+        <div class="main-image-box">
+          <img
+            src="https://picsum.photos/seed/detailmain/800/1000"
+            alt="Obsidian Chronograph main view"
+            class="main-image"
+            id="mainImage"
+          />
+        </div>
+
+        <div class="thumbnail-grid" aria-label="Product gallery thumbnails">
+          <button class="thumb active" type="button"
+            data-src="https://picsum.photos/seed/detailmain/800/1000" aria-label="Front View">
+            <img src="https://picsum.photos/seed/detailmain/800/1000" alt="Front View" loading="lazy" />
+          </button>
+
+          <button class="thumb" type="button"
+            data-src="https://picsum.photos/seed/detailside/800/1000" aria-label="Side View">
+            <img src="https://picsum.photos/seed/detailside/800/1000" alt="Side View" loading="lazy" />
+          </button>
+
+          <button class="thumb" type="button"
+            data-src="https://picsum.photos/seed/detailback/800/1000" aria-label="Back View">
+            <img src="https://picsum.photos/seed/detailback/800/1000" alt="Back View" loading="lazy" />
+          </button>
+
+          <button class="thumb" type="button"
+            data-src="https://picsum.photos/seed/detaildetail/800/1000" aria-label="Close Up">
+            <img src="https://picsum.photos/seed/detaildetail/800/1000" alt="Close Up" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section" aria-label="Related products">
+      <h2 class="section-title text-center">You May Also Like</h2>
+
+      <div class="related-grid">
+        <article class="related-card">
+          <a href="#">
+            <img src="https://picsum.photos/seed/rel1/400/500" class="related-img" alt="Canvas Weekend Tote" loading="lazy" />
+            <h3 class="related-title">Canvas Weekend Tote</h3>
+            <span class="related-price">$89.50</span>
+          </a>
+        </article>
+
+        <article class="related-card">
+          <a href="#">
+            <img src="https://picsum.photos/seed/rel2/400/500" class="related-img" alt="Leather Commuter" loading="lazy" />
+            <h3 class="related-title">Leather Commuter</h3>
+            <span class="related-price">$65.00</span>
+          </a>
+        </article>
+
+        <article class="related-card">
+          <a href="#">
+            <img src="https://picsum.photos/seed/rel3/400/500" class="related-img" alt="Silk Scarf" loading="lazy" />
+            <h3 class="related-title">Silk Scarf</h3>
+            <span class="related-price">$35.00</span>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+    Footer
+  ======================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo">Luxe<span>Store</span>.</a>
+          <p class="footer-text">
+            Your destination for premium fashion and lifestyle products. Designed for the modern individual.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Men</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="footer-text">Subscribe to our newsletter for latest updates.</p>
+          <form class="newsletter" action="#" method="post">
+            <input type="email" name="email" placeholder="Your email address" required />
+            <button class="btn-sm newsletter-btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 LuxeStore. All rights reserved. Designed with HTML5 &amp; CSS3.
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+    JS
+  ======================================================= -->
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
