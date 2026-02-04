@@ -17,10 +17,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/swiper-custom.css" />
 </head>
 
 <body>
@@ -86,18 +91,39 @@
         </ul>
       </nav>
 
+      <!-- UPDATED: Account icon added left of cart -->
       <div class="nav-icons">
+        <!-- Account / Login -->
+        <button
+          class="account-btn"
+          type="button"
+          aria-label="Sign in / Account"
+          data-bs-toggle="modal"
+          data-bs-target="#authModal"
+        >
+          <!-- user icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21a8 8 0 1 0-16 0"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+
+        <!-- Cart -->
         <button class="cart-btn" type="button" aria-label="View Cart">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           <span class="cart-count" id="cartCount">3</span>
         </button>
 
+        <!-- Mobile Menu Toggle -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </div>
   </header>
+
   <!-- =========================
     Cart Drawer
   ========================== -->
@@ -151,7 +177,6 @@
 
     <!-- Footer - Total & Buttons -->
     <div class="cart-drawer-footer">
-      <!-- Cart Total Calculation -->
       <div class="cart-drawer-total">
         <div class="cart-drawer-total-row">
           <span class="cart-drawer-total-label">Subtotal:</span>
@@ -167,58 +192,48 @@
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="cart-drawer-buttons">
         <a href="cart.html" class="cart-drawer-btn cart-drawer-view-btn">View Cart</a>
         <a href="checkout.html" class="cart-drawer-btn cart-drawer-checkout-btn">Checkout</a>
       </div>
     </div>
   </div>
+
   <!-- =========================
     Hero Slider
   ========================== -->
   <section id="hero" class="hero-slider" aria-label="Hero Slider">
     <div class="slide active">
-      <img src="assets/images/hero/hero-1.jpg" alt="Summer Collection" class="slide-bg" />
+      <img src="assets/images/slider/slider-1.png" alt="Summer Collection" class="slide-bg" />
+      <div class="slide-content" style="position:absolute;top:69%;left:30%;transform:translate(-50%,-50%);width:100%;display:flex;align-items:center;justify-content:center;z-index:2;">
+        <style>
+          @media (max-width: 600px) {
+            .hero-slider .slide-content {
+              left: 50% !important;
+            }
+          }
+        </style>
+        <div class="hero-text-bg" style="background:rgba(0,0,0,0.45);border-radius:24px;padding:3rem 3rem 2.5rem 3rem;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,0.18);width:900px;max-width:95vw;margin:0 auto;text-align:center;">
+          <h1 style="color:#fff;font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:1.5rem;">New Summer Collection</h1>
+          <p style="color:#fff;font-size:1.35rem;margin-bottom:2.2rem;text-align:center;max-width:700px;">Discover vibrant colors and lightweight fabrics designed for the sunny season.</p>
+          <a href="shop.html" class="btn btn-slider" style="margin-top:0.5rem;">Shop Summer</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="slide">
+      <img src="assets/images/slider/slider-2.png" alt="Summer Collection" class="slide-bg" />
       <div class="container">
         <div class="slide-content">
-          <h1>New Summer Collection</h1>
+           <h1>New Summer Collection</h1>
           <p>Discover vibrant colors and lightweight fabrics designed for the sunny season.</p>
           <a href="#products" class="btn btn-slider">Shop Summer</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="slide">
-      <img src="assets/images/hero/hero-2.jpg" alt="Premium Accessories" class="slide-bg" />
-      <div class="container">
-        <div class="slide-content">
-          <h1>Premium Accessories</h1>
-          <p>Complete your look with our exclusive range of watches, bags, and jewelry.</p>
-          <a href="#products" class="btn btn-slider">View Accessories</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="slide">
-      <img src="assets/images/hero/hero-3.jpg" alt="Urban Streetwear" class="slide-bg" />
-      <div class="container">
-        <div class="slide-content">
-          <h1>Urban Streetwear</h1>
-          <p>Edgy, comfortable, and stylish. Find the perfect fit for your daily grind.</p>
-          <a href="#products" class="btn btn-slider">Shop Streetwear</a>
-        </div>
-      </div>
-    </div>
-
-    <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous slide">&#10094;</button>
-    <button class="slider-btn next-btn" id="nextSlide" aria-label="Next slide">&#10095;</button>
-
-    <div class="slider-dots" id="sliderDots" aria-label="Slider dots">
-      <button class="dot active" data-index="0" aria-label="Go to slide 1"></button>
-      <button class="dot" data-index="1" aria-label="Go to slide 2"></button>
-      <button class="dot" data-index="2" aria-label="Go to slide 3"></button>
-    </div>
+    
   </section>
 
   <!-- =========================
@@ -230,12 +245,12 @@
         <span class="section-kicker">The Collection</span>
         <h2>Curated Pieces<br />For Every Occasion.</h2>
         <p>From casual outings to formal events, our latest collection blends timeless aesthetics with modern utility.</p>
-        <a href="#products" class="link-underline">View All Items</a>
+        <a href="shop1.html" class="link-underline">View All Items</a>
       </div>
 
       <div class="split-images">
-        <div class="split-img"><img src="assets/images/collection/col-1.jpg" alt="Collection 1" /></div>
-        <div class="split-img"><img src="assets/images/collection/col-2.jpg" alt="Collection 2" /></div>
+        <div class="split-img"><img src="assets/images/Curated_Pieces/image-1.png" alt="Collection 1" /></div>
+        <div class="split-img"><img src="assets/images/Curated_Pieces/image-2.png" alt="Collection 2" /></div>
       </div>
     </div>
   </section>
@@ -245,11 +260,46 @@
   ========================== -->
   <section id="products" class="section-padding container">
     <div class="text-center">
-      <h2 class="section-title">Trending Arrivals</h2>
-      <p class="section-subtitle">Browse our latest inventory organized by category.</p>
+       <h3 class="category-name">Trending Arrivals</h3>
+    
     </div>
 
-    <!-- Accessories -->
+    <!-- Swiper Slider for Trending Arrivals -->
+    <div class="trending-swiper">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p class="section-subtitle" style="margin-bottom: 0;">Browse our latest inventory organized by category.</p>
+        <div class="trending-swiper-nav" style="display: flex; gap: 8px;">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="assets/images/products/image-1.jfif" alt="Trending 1">
+            <div class="slide-caption">Minimalist Watch</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/images/products/image-2.jfif" alt="Trending 2">
+            <div class="slide-caption">Classic Sunglasses</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/images/products/image-3.jfif" alt="Trending 3">
+            <div class="slide-caption">Leather Wallet</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/images/products/image-4.jfif" alt="Trending 4">
+            <div class="slide-caption">Elegant Bracelet</div>
+          </div>
+        </div>
+      </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
+ 
+      <!-- Accessories -->
     <div class="category-section">
       <div class="category-header">
         <h3 class="category-name">Accessories</h3>
@@ -259,32 +309,32 @@
       <div class="products-grid">
         <article class="product-card">
           <div class="product-image-wrapper">
-            <img src="assets/images/products/watch.jpg" alt="Minimalist Watch" loading="lazy" />
+            <img src="assets/images/products/image-3.jfif" alt="Leather Tote" loading="lazy" />
             <div class="add-to-cart-overlay">
-              <button class="btn btn-sm add-to-cart-btn" data-name="Minimalist Watch">Add to Cart</button>
+              <button class="btn btn-sm add-to-cart-btn" data-name="Leather Tote">Add to Cart</button>
             </div>
           </div>
           <div class="product-info">
-            <span class="product-category">Accessories</span>
-            <h4 class="product-title">Minimalist Watch</h4>
+            <span class="product-category">Bags</span>
+            <h4 class="product-title">Leather Tote</h4>
             <div class="product-footer">
-              <span class="product-price">$129.00</span>
+              <span class="product-price">$89.50</span>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="product-image-wrapper">
-            <img src="assets/images/products/sunglasses.jpg" alt="Aviator Sunglasses" loading="lazy" />
+            <img src="assets/images/products/image-4.jfif" alt="Canvas Backpack" loading="lazy" />
             <div class="add-to-cart-overlay">
-              <button class="btn btn-sm add-to-cart-btn" data-name="Aviator Sunglasses">Add to Cart</button>
+              <button class="btn btn-sm add-to-cart-btn" data-name="Canvas Backpack">Add to Cart</button>
             </div>
           </div>
           <div class="product-info">
-            <span class="product-category">Accessories</span>
-            <h4 class="product-title">Aviator Sunglasses</h4>
+            <span class="product-category">Bags</span>
+            <h4 class="product-title">Canvas Backpack</h4>
             <div class="product-footer">
-              <span class="product-price">$45.00</span>
+              <span class="product-price">$55.00</span>
             </div>
           </div>
         </article>
@@ -301,7 +351,7 @@
       <div class="products-grid">
         <article class="product-card">
           <div class="product-image-wrapper">
-            <img src="assets/images/products/tote.jpg" alt="Leather Tote" loading="lazy" />
+            <img src="assets/images/products/image-3.jfif" alt="Leather Tote" loading="lazy" />
             <div class="add-to-cart-overlay">
               <button class="btn btn-sm add-to-cart-btn" data-name="Leather Tote">Add to Cart</button>
             </div>
@@ -317,7 +367,7 @@
 
         <article class="product-card">
           <div class="product-image-wrapper">
-            <img src="assets/images/products/backpack.jpg" alt="Canvas Backpack" loading="lazy" />
+            <img src="assets/images/products/image-4.jfif" alt="Canvas Backpack" loading="lazy" />
             <div class="add-to-cart-overlay">
               <button class="btn btn-sm add-to-cart-btn" data-name="Canvas Backpack">Add to Cart</button>
             </div>
@@ -343,7 +393,7 @@
       <div class="products-grid">
         <article class="product-card">
           <div class="product-image-wrapper">
-            <img src="assets/images/products/sneaker.jpg" alt="Urban Sneakers" loading="lazy" />
+            <img src="assets/images/products/image-5.jfif" alt="Urban Sneakers" loading="lazy" />
             <div class="add-to-cart-overlay">
               <button class="btn btn-sm add-to-cart-btn" data-name="Urban Sneakers">Add to Cart</button>
             </div>
@@ -399,7 +449,7 @@
     <div class="blog-layout">
       <article class="blog-card-featured">
         <div class="blog-img-wrapper">
-          <img src="assets/images/blog/blog-feature.jpg" alt="Featured Blog" />
+          <img src="assets/images/products/image-1.jfif" alt="Featured Blog" />
         </div>
         <div class="blog-content">
           <span class="blog-date">Oct 24, 2023</span>
@@ -434,9 +484,27 @@
   <section id="features" class="features section-padding">
     <div class="container">
       <div class="features-grid">
-        <div class="feature-item"><div class="feature-icon">🚚</div><h3 class="feature-title">Free Shipping</h3><p class="feature-desc">On all orders over $100 worldwide.</p></div>
-        <div class="feature-item"><div class="feature-icon">🛡️</div><h3 class="feature-title">Secure Payment</h3><p class="feature-desc">100% secure with 256-bit encryption.</p></div>
-        <div class="feature-item"><div class="feature-icon">↩️</div><h3 class="feature-title">30 Days Return</h3><p class="feature-desc">Easy returns if you change your mind.</p></div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="assets/images/features/shipping.png" alt="Free Shipping" style="width:48px;height:48px;" />
+          </div>
+          <h3 class="feature-title">Free Shipping</h3>
+          <p class="feature-desc">On all orders over $100 worldwide.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="assets/images/features/secure.png" alt="Secure Payment" style="width:48px;height:48px;" />
+          </div>
+          <h3 class="feature-title">Secure Payment</h3>
+          <p class="feature-desc">100% secure with 256-bit encryption.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <img src="assets/images/features/return.png" alt="30 Days Return" style="width:48px;height:48px;" />
+          </div>
+          <h3 class="feature-title">30 Days Return</h3>
+          <p class="feature-desc">Easy returns if you change your mind.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -481,9 +549,167 @@
     <div class="toast-icon">✓</div>
     <div class="toast-message" id="toastMessage">Item added to cart!</div>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- =========================
+    Auth Modal (Sign In / Sign Up)
+  ========================== -->
+  <div class="modal fade auth-modal" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered auth-modal-lg" style="max-width:800px;">
+      <div class="modal-content auth-modal-content">
+        <div class="row g-0">
+          <!-- Left: Image -->
+          <div class="col-md-5 d-none d-md-block auth-modal-image" style="background:#f8f9fa;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/images/signup.png" alt="E-commerce" style="max-width:100%;height:auto;object-fit:cover;">
+          </div>
+          <!-- Right: Form -->
+          <div class="col-12 col-md-7">
+            <div class="modal-header border-0 pb-0">
+              <div class="w-100 d-flex align-items-center justify-content-between px-2 py-3 rounded-top" style="background: linear-gradient(90deg, #f8fafc 60%, #f1f5f9 100%); border-bottom: 1px solid #e5e7eb;">
+                <div class="d-flex align-items-center gap-2">
+                  <span style="background:#fff3cd;border-radius:50%;padding:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                    <svg width="28" height="28" fill="none" stroke="#f59e42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <rect x="3" y="6" width="18" height="13" rx="2"/>
+                      <path d="M16 3v3M8 3v3M3 10h18"/>
+                    </svg>
+                  </span>
+                  <h5 class="modal-title mb-0 fw-bold" style="font-size:1.25rem;letter-spacing:0.5px;color:#222;">Welcome to <span style="color:#f59e42;">LuxeStore</span></h5>
+                </div>
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="modal-body pt-3">
+              <!-- Centered Title -->
+              <div class="text-center mb-3">
+                <h4 class="fw-bold mb-0" id="authTitle" style="font-size:1.5rem;letter-spacing:0.5px;">Sign In</h4>
+              </div>
+              <!-- Tabs -->
+              <ul class="nav nav-pills auth-tabs justify-content-center" id="authTabs" role="tablist" style="background:#f8fafc;border:1px solid #f1f5f9;gap:0.5rem;padding:0.5rem 0;border-radius:0.5rem;">
+                <span class="mx-2 text-muted d-flex align-items-center" style="font-size:1rem;">Don't have an account?</span>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="signup-tab" data-bs-toggle="pill"
+                    data-bs-target="#signup-pane" type="button" role="tab" aria-controls="signup-pane" aria-selected="false" style="min-width:90px;background:transparent;color:#f59e42;border:none;">
+                    Sign Up
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content pt-3">
+                <!-- Sign In -->
+                <div class="tab-pane fade show active" id="signin-pane" role="tabpanel" aria-labelledby="signin-tab">
+                  <form id="signInForm" class="auth-form" autocomplete="on">
+                    <div class="mb-3">
+                      <label class="form-label" for="signinEmail">Email</label>
+                      <input type="email" class="form-control" id="signinEmail" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="mb-2">
+                      <label class="form-label" for="signinPassword">Password</label>
+                      <input type="password" class="form-control" id="signinPassword" placeholder="••••••••" required />
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe" />
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                      </div>
+
+                      <button type="button" class="btn btn-link p-0 auth-link" id="forgotPasswordBtn">
+                        Forgot password?
+                      </button>
+                    </div>
+
+                    <button type="submit" class="btn auth-btn w-100">Sign In</button>
+
+                    <div class="auth-divider"><span>or</span></div>
+
+                    <button type="button" class="btn auth-btn-outline w-100" id="googleAuthBtn">
+                      Continue with Google
+                    </button>
+                  </form>
+                </div>
+
+                <!-- Sign Up -->
+                <div class="tab-pane fade" id="signup-pane" role="tabpanel" aria-labelledby="signup-tab">
+                  <form id="signUpForm" class="auth-form" autocomplete="on">
+                    <div class="row g-3">
+                      <div class="col-12 col-md-6">
+                        <label class="form-label" for="signupFirstName">First name</label>
+                        <input type="text" class="form-control" id="signupFirstName" placeholder="Your first name" required />
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label class="form-label" for="signupLastName">Last name</label>
+                        <input type="text" class="form-control" id="signupLastName" placeholder="Your last name" required />
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <label class="form-label" for="signupEmail">Email</label>
+                      <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="mt-3">
+                      <label class="form-label" for="signupPassword">Password</label>
+                      <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required />
+                      <small class="auth-hint">Use 8+ chars with a mix of letters & numbers.</small>
+                    </div>
+
+                    <div class="mt-3">
+                      <label class="form-label" for="signupConfirmPassword">Confirm password</label>
+                      <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Repeat password" required />
+                    </div>
+
+                    <div class="form-check mt-3">
+                      <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+                      <label class="form-check-label" for="agreeTerms">
+                        I agree to the <a href="#" class="auth-link">Terms</a> and <a href="#" class="auth-link">Privacy Policy</a>
+                      </label>
+                    </div>
+
+                    <button type="submit" class="btn auth-btn w-100 mt-3">Create Account</button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="auth-message mt-3" id="authMessage" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Main JS -->
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.trending-swiper .swiper', {
+        slidesPerView: 4,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.trending-swiper-nav .swiper-button-next',
+          prevEl: '.trending-swiper-nav .swiper-button-prev',
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          576: { slidesPerView: 2 },
+          992: { slidesPerView: 3 },
+          1200: { slidesPerView: 4 }
+        }
+      });
+    });
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>
+  
