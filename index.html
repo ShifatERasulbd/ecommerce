@@ -22,10 +22,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="assets/css/swiper-custom.css" />
 </head>
 
 <body>
@@ -256,47 +256,137 @@
   </section>
 
   <!-- =========================
-    Categorized Products
+    Special Offers (with Countdown)
   ========================== -->
-  <section id="products" class="section-padding container">
-    <div class="text-center">
-       <h3 class="category-name">Trending Arrivals</h3>
-    
-    </div>
-
-    <!-- Swiper Slider for Trending Arrivals -->
-    <div class="trending-swiper">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <p class="section-subtitle" style="margin-bottom: 0;">Browse our latest inventory organized by category.</p>
-        <div class="trending-swiper-nav" style="display: flex; gap: 8px;">
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+  <section class="special-offers-section" style="background: #f8f9ff; padding: 3.5rem 0 2.5rem 0;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+      <div class="special-offers-header" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+        <div>
+          <span class="section-kicker" style="color: #e11d48; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">Special Offers</span>
+          <h2 style="font-size: 2.1rem; font-weight: 800; margin: 0.2rem 0 0.5rem 0; color: #222;">Best & Latest Style</h2>
+          <p style="color: #6b7280; font-size: 1.08rem; max-width: 500px;">Don't miss out on our limited-time deals for the most popular and trending fashion pieces. Shop now before the offer ends!</p>
+        </div>
+        <div class="special-offers-timer" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.2rem 2.2rem; display: flex; align-items: center; gap: 1.2rem;">
+          <span style="font-weight: 700; color: #e11d48; font-size: 1.1rem;">Ends In:</span>
+          <div id="special-offers-countdown" style="display: flex; gap: 0.7rem; font-size: 1.35rem; font-weight: 700; color: #4636e3;"></div>
         </div>
       </div>
-      <div class="swiper">
+      <div class="special-offers-products swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="assets/images/products/image-1.jfif" alt="Trending 1">
-            <div class="slide-caption">Minimalist Watch</div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-1.jfif" alt="Minimalist Watch" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Minimalist Watch</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$99.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$129.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
           </div>
-          <div class="swiper-slide">
-            <img src="assets/images/products/image-2.jfif" alt="Trending 2">
-            <div class="slide-caption">Classic Sunglasses</div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-4.jfif" alt="Elegant Bracelet" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Elegant Bracelet</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$39.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$59.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
           </div>
-          <div class="swiper-slide">
-            <img src="assets/images/products/image-3.jfif" alt="Trending 3">
-            <div class="slide-caption">Leather Wallet</div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
           </div>
-          <div class="swiper-slide">
-            <img src="assets/images/products/image-4.jfif" alt="Trending 4">
-            <div class="slide-caption">Elegant Bracelet</div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
           </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          <div class="swiper-slide special-offer-card" style="background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 1.5rem 1.2rem; max-width: 260px; text-align: center;">
+            <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem;">Classic Sunglasses</h4>
+            <div style="color: #e11d48; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.2rem;">$49.00 <span style="color:#6b7280; font-weight:400; text-decoration:line-through; font-size:0.98rem; margin-left:0.3rem;">$69.00</span></div>
+            <button class="btn btn-sm add-to-cart-btn" style="margin-top: 0.7rem;">Add to Cart</button>
+          </div>
+          
         </div>
-      </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+  </section>
+
+  <!-- =========================
+    Categorized Products
+  ========================== -->
+  <section id="products" class="section-padding container">
+
+        <!-- Trending Arrivals Swiper Slider -->
+        <div class="trending-swiper" style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 class="category-name" style="margin-bottom: 0;">Trending Arrivals</h3>
+          </div>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-1.jfif" alt="Minimalist Watch" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Minimalist Watch</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-2.jfif" alt="Classic Sunglasses" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Classic Sunglasses</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-3.jfif" alt="Leather Wallet" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Leather Wallet</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-4.jfif" alt="Elegant Bracelet" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Elegant Bracelet</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-4.jfif" alt="Elegant Bracelet" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Elegant Bracelet</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-4.jfif" alt="Elegant Bracelet" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Elegant Bracelet</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/products/image-4.jfif" alt="Elegant Bracelet" style="width: 180px; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="slide-caption">Elegant Bracelet</div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+    
 
  
       <!-- Accessories -->
@@ -684,32 +774,99 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Main JS -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.trending-swiper .swiper', {
+          slidesPerView: 4,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.trending-swiper .swiper-button-next',
+            prevEl: '.trending-swiper .swiper-button-prev',
+          },
+          breakpoints: {
+            0: { slidesPerView: 1 },
+            576: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+          }
+        });
+      });
+    </script>
   <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+<!-- Countdown Timer for Special Offers -->
+<script>
+    // Countdown Timer for Special Offers
+    (function() {
+      // Set the offer end date/time (e.g., 3 days from now)
+      var offerEnd = new Date();
+      offerEnd.setDate(offerEnd.getDate() + 3);
+      offerEnd.setHours(23, 59, 59, 999);
+      function updateCountdown() {
+        var now = new Date();
+        var diff = offerEnd - now;
+        if (diff < 0) diff = 0;
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        var mins = Math.floor((diff / (1000 * 60)) % 60);
+        var secs = Math.floor((diff / 1000) % 60);
+        var html = '';
+        if (days > 0) html += '<span>' + days + 'd</span>';
+        html += '<span>' + String(hours).padStart(2, '0') + 'h</span>';
+        html += '<span>' + String(mins).padStart(2, '0') + 'm</span>';
+        html += '<span>' + String(secs).padStart(2, '0') + 's</span>';
+        var el = document.getElementById('special-offers-countdown');
+        if (el) el.innerHTML = html;
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    })();
+
+    // Swiper for Special Offers
     document.addEventListener('DOMContentLoaded', function() {
-      new Swiper('.trending-swiper .swiper', {
+      new Swiper('.special-offers-products.swiper', {
         slidesPerView: 4,
         spaceBetween: 24,
         loop: true,
+        loopedSlides: 10, // Total number of slides to loop
+        centeredSlides: false,
         autoplay: {
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         },
         navigation: {
-          nextEl: '.trending-swiper-nav .swiper-button-next',
-          prevEl: '.trending-swiper-nav .swiper-button-prev',
+          nextEl: '.special-offers-products .swiper-button-next',
+          prevEl: '.special-offers-products .swiper-button-prev',
         },
         breakpoints: {
-          0: { slidesPerView: 1 },
-          576: { slidesPerView: 2 },
-          992: { slidesPerView: 3 },
-          1200: { slidesPerView: 4 }
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 16
+          },
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 24
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 24
+          }
         }
       });
     });
   </script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
-  

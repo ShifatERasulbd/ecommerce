@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories | LuxeStore</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Luxe<span>Store</span>.</a>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Hero -->
+  <section class="breadcrumb-hero" aria-label="Categories Banner">
+    <img src="assets/images/slider/slider-1.png" alt="Categories Banner">
+    <div class="breadcrumb-hero-content">
+      <div class="breadcrumb-hero-inner">
+        <h1 class="breadcrumb-title">Shop by Category</h1>
+        <div class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Categories</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <main class="categories-wrap">
+    <span class="categories-kicker">Popular Categories</span>
+    <h2 class="categories-heading">Browse What You Love</h2>
+    <p class="categories-subtitle">
+      Explore curated collections designed for modern lifestyle — from premium accessories to everyday essentials.
+    </p>
+
+    <div class="categories-grid">
+      <a class="category-card" href="shop.html#accessories">
+        <div class="category-thumb">
+          <img src="assets/images/products/image-4.jfif" alt="Accessories" />
+        </div>
+        <div class="category-name">Accessories</div>
+        <div class="category-desc">Watches, bracelets, essentials — built to elevate your style.</div>
+        <div class="category-action">Explore <span>&rarr;</span></div>
+      </a>
+
+      <a class="category-card" href="shop.html#bags">
+        <div class="category-thumb">
+          <img src="assets/images/products/image-3.jfif" alt="Bags" />
+        </div>
+        <div class="category-name">Bags</div>
+        <div class="category-desc">Premium totes & backpacks crafted for daily use.</div>
+        <div class="category-action">Explore <span>&rarr;</span></div>
+      </a>
+
+      <a class="category-card" href="shop.html#footwear">
+        <div class="category-thumb">
+          <img src="assets/images/products/image-5.jfif" alt="Footwear" />
+        </div>
+        <div class="category-name">Footwear</div>
+        <div class="category-desc">Modern sneakers & classic loafers — comfort meets design.</div>
+        <div class="category-action">Explore <span>&rarr;</span></div>
+      </a>
+
+      <a class="category-card" href="shop.html#sunglasses">
+        <div class="category-thumb">
+          <img src="assets/images/products/image-2.jfif" alt="Sunglasses" />
+        </div>
+        <div class="category-name">Sunglasses</div>
+        <div class="category-desc">Timeless shades that fit every season and mood.</div>
+        <div class="category-action">Explore <span>&rarr;</span></div>
+      </a>
+    </div>
+
+    <!-- CTA -->
+    <div class="categories-cta">
+      <div>
+        <h3>Want to see everything in one place?</h3>
+        <p>Browse the full collection and filter by price, style, and new arrivals.</p>
+      </div>
+      <a href="shop.html" class="cta-btn">Go to Shop</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top:30px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo footer-logo">Luxe<span>Store</span>.</a>
+          <p class="footer-text">Your destination for premium fashion.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; <span id="year"></span> LuxeStore. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
